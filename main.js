@@ -3,7 +3,8 @@ let houses = {};
 let houseNames= ["Gryffindor", "Ravenclaw", "Hufflepuff", "Slytherin"];
 
 let houseValues = [
-    "bravery, helping others, and chivalry", "hard work, patience, loyalty, and fair play", 
+    "bravery, helping others, and chivalry", 
+    "hard work, patience, loyalty, and fair play", 
     "intelligence, knowledge, planning ahead, and wit", 
     "ambition, cunningness, heritage, and resourcefulness"
 ];
