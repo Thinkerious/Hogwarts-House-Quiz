@@ -35,8 +35,6 @@ houseNames.forEach((house, index) => {
     }
 })
 
-askQuestion(introText[0]);
-
 function askQuestion(question){
     let questionAnswer = prompt(question);
     if(questionAnswer == 'a'){
@@ -57,18 +55,19 @@ function askQuestion(question){
     }
 }
 
-sortUser();
-houseSelections();
-
 function sortUser(){
     if(houses["Gryffindor"].points > houses["Ravenclaw"].points && houses["Gryffindor"].points > houses["Hufflepuff"].points && houses["Gryffindor"].points > houses["Slytherin"].points){
         document.getElementById("sortedHouse").textContent = "You've been sorted into... GRYFFINDOR! Gryffindors value " + houses["Gryffindor"].values + ".";
+        document.getElementById("displayHere").innerHTML = "<img src=https://i.pinimg.com/originals/a4/26/7f/a4267f613b93dd1a9498d6bebf8871c7.jpg>";
     } else if(houses["Ravenclaw"].points > houses["Gryffindor"].points && houses["Ravenclaw"].points > houses["Hufflepuff"].points && houses["Ravenclaw"].points > houses["Slytherin"].points){
         document.getElementById("sortedHouse").textContent ="You've been sorted into... RAVENCLAW! Ravenclaws value " + houses["Ravenclaw"].values + ".";
+        document.getElementById("displayHere").innerHTML = "<img src=https://i.pinimg.com/564x/25/ee/9d/25ee9d03b070a1bb34d4015e6b61a55c.jpg>";
     } else if(houses["Hufflepuff"].points > houses["Gryffindor"].points && houses["Hufflepuff"].points > houses["Ravenclaw"].points && houses["Hufflepuff"].points > houses["Slytherin"].points){
         document.getElementById("sortedHouse").textContent ="You've been sorted into... HUFFLEPUFF! Hufflepuffs value " + houses["Hufflepuff"].values + ".";
+        document.getElementById("displayHere").innerHTML = "<img src=https://i.pinimg.com/originals/a1/75/16/a1751642fa871cea7e7d40f4b613a983.png>";
     } else if(houses["Slytherin"].points > houses["Gryffindor"].points && houses["Slytherin"].points > houses["Ravenclaw"].points && houses["Slytherin"].points > houses["Hufflepuff"].points){
         document.getElementById("sortedHouse").textContent ="You've been sorted into... SLYTHERIN! Slytherins value " + houses["Slytherin"].values + ".";
+        document.getElementById("displayHere").innerHTML = "<img src=https://i.pinimg.com/736x/62/7c/1f/627c1f75443e442fe99daed4dbb224fc.jpg>";
     } else{
         document.getElementById("sortedHouse").textContent = "Too difficult to decide...";
     }
@@ -80,5 +79,24 @@ function houseSelections(){
         const house = houseNames[index];
         newVar.insertAdjacentHTML("beforeEnd", "<br>");
         newVar.insertAdjacentText("beforeEnd", "You had a " + (houses[house].points > 0 ? houses[house].points : "") + "0% chance of getting into " + houses[house].name + "!");
+    }
+}
+
+function runQuiz(){   
+    if(this.started){
+        document.getElementById("sortedHouse").innerText = "";
+        document.getElementById("houseChance").innerText = "";
+        document.getElementById("displayHere").innerHTML = "";
+        this.started = false;
+
+        houseNames.forEach((house) => {
+            houses[house].points = 0;
+        })
+
+    } else{
+        askQuestion(introText[0]);
+        houseSelections();
+        sortUser();
+        this.started = true;
     }
 }
