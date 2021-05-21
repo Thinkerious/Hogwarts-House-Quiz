@@ -62,21 +62,23 @@ houseSelections();
 
 function sortUser(){
     if(houses["Gryffindor"].points > houses["Ravenclaw"].points && houses["Gryffindor"].points > houses["Hufflepuff"].points && houses["Gryffindor"].points > houses["Slytherin"].points){
-        alert("You've been sorted into... GRYFFINDOR! Gryffindors value " + houses["Gryffindor"].values + ".");
+        document.getElementById("sortedHouse").textContent = "You've been sorted into... GRYFFINDOR! Gryffindors value " + houses["Gryffindor"].values + ".";
     } else if(houses["Ravenclaw"].points > houses["Gryffindor"].points && houses["Ravenclaw"].points > houses["Hufflepuff"].points && houses["Ravenclaw"].points > houses["Slytherin"].points){
-        alert("You've been sorted into... RAVENCLAW! Ravenclaws value " + houses["Ravenclaw"].values + ".");
+        document.getElementById("sortedHouse").textContent ="You've been sorted into... RAVENCLAW! Ravenclaws value " + houses["Ravenclaw"].values + ".";
     } else if(houses["Hufflepuff"].points > houses["Gryffindor"].points && houses["Hufflepuff"].points > houses["Ravenclaw"].points && houses["Hufflepuff"].points > houses["Slytherin"].points){
-        alert("You've been sorted into... HUFFLEPUFF! Hufflepuffs value " + houses["Hufflepuff"].values + ".");
+        document.getElementById("sortedHouse").textContent ="You've been sorted into... HUFFLEPUFF! Hufflepuffs value " + houses["Hufflepuff"].values + ".";
     } else if(houses["Slytherin"].points > houses["Gryffindor"].points && houses["Slytherin"].points > houses["Ravenclaw"].points && houses["Slytherin"].points > houses["Hufflepuff"].points){
-        alert("You've been sorted into... SLYTHERIN! Slytherins value " + houses["Slytherin"].values + ".");
+        document.getElementById("sortedHouse").textContent ="You've been sorted into... SLYTHERIN! Slytherins value " + houses["Slytherin"].values + ".";
     } else{
-        alert("Too difficult to decide...");
+        document.getElementById("sortedHouse").textContent = "Too difficult to decide...";
     }
 }
 
 function houseSelections(){
+    let newVar = document.getElementById("houseChance");
     for (let index = 0; index < houseNames.length; index++){
         const house = houseNames[index];
-        alert("You had a " + (houses[house].points > 0 ? houses[house].points : "") + "0% chance of getting into " + houses[house].name + "!");
+        newVar.insertAdjacentHTML("beforeEnd", "<br>");
+        newVar.insertAdjacentText("beforeEnd", "You had a " + (houses[house].points > 0 ? houses[house].points : "") + "0% chance of getting into " + houses[house].name + "!");
     }
 }
