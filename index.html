@@ -6,7 +6,14 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Hogwarts House Quiz</title>
-    </head>
+        <link rel="stylesheet" href="style.css">
+        <script src="main.js" defer>
+            let introText = [
+                "Welcome to the Hogwarts House Quiz. In this Hogwarts House themed personality quiz, you will answer a series of 10 questions to figure out which house of Hogwarts you belong in. \nAre you ready to start? Type 'GO' to continue.",
+                "Please take a moment to read the instructions on the left of the page. once you have done so, type 'START' to start the quiz.",
+            ];
+        </script>
+    </head> 
 
     <body>
 
@@ -26,11 +33,15 @@
         </ul>
 
         <img src="hogwarts logo.png" border="5">
+        <br>
+        <br>
+        <button type="button" onClick="runQuiz()">Start</button>
+
         <h2>Results:</h2>
+
         <p id = "sortedHouse"></p>
+        <div id ="displayHere"></div>
         <p id = "houseChance"></p>
     </body>
-
-    <script type="module" src="main.js" defer></script>
     
 </html>
